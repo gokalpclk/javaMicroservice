@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GeneralExceptionHandler {
     @ExceptionHandler(BookNotFoundException.class)
-    public ResponseEntity<?> handle(BookNotFoundException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    public ResponseEntity<ExceptionMessage> handle(BookNotFoundException exception) {
+        return new ResponseEntity<>(
+                exception.getExceptionMessage(),
+                HttpStatus.resolve(exception.getExceptionMessage().status())
+        );
     }
 
     @ExceptionHandler(LibraryNotFoundException.class)
-    public ResponseEntity<?> handle(LibraryNotFoundException exception){
+    public ResponseEntity<?> handle(LibraryNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+
 }
