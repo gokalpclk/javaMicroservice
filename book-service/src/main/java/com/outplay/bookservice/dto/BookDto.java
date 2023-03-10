@@ -12,12 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDto {
-    private String id;
-
+    private BookIdDto id;
     private String title;
-
-    private int bookYear;
+    private int year;
     private String author;
     private String pressName;
-    private String isbn;
+
+
+    public BookDto(BookIdDto id) {
+        this.id = id;
+    }
 }

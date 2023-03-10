@@ -12,10 +12,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class BookDto {
-    private String id;
+    private BookIdDto id;
     private String title;
     private int year;
     private String author;
     private String pressName;
 
+    public BookDto(BookIdDto id) {
+        this.id = id;
+    }
 }
