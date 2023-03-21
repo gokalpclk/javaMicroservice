@@ -28,7 +28,7 @@ public class LibraryController {
 
     private final Environment environment;
 
-    @Value("${library.service.count}")
+    @Value("${library-service.book.count}")
     private Integer count;
 
     @GetMapping("{id}")
